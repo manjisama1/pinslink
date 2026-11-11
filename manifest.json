@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "PinsLink - by Manji",
+  "version": "2.0",
+  "description": "Collect Pinterest images while you scroll, then export links or download them in the quality you choose.",
+  "permissions": ["storage", "downloads"],
+  "host_permissions": ["https://i.pinimg.com/*"],
+  "icons": { "128": "icon.png" },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.pinterest.com/*",
+        "*://*.pinterest.co.uk/*",
+        "*://*.pinterest.ca/*",
+        "*://*.pinterest.com.au/*",
+        "*://*.pinterest.de/*",
+        "*://*.pinterest.fr/*",
+        "*://*.pinterest.es/*",
+        "*://*.pinterest.it/*",
+        "*://*.pinterest.jp/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
